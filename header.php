@@ -16,9 +16,9 @@
           <ul class="min-list group">
             <li <?php if(is_page('about-us') || wp_get_post_parent_id(0) == 7) print 'class="current-menu-item"' ?>><a href="<?php print site_url('/about-us') ?>">About Us</a></li>
             <li><a href="#">Programs</a></li>
-            <li><a href="#">Events</a></li>
+            <li <?php if(get_post_type() == 'event'|| is_page('past-events')) print 'class="current-menu-item"' ?>><a href="<?php print get_post_type_archive_link('event') ?>">Events</a></li>
             <li><a href="#">Campuses</a></li>
-            <li><a href="#">Blog</a></li>
+            <li <?php if( get_post_type() == 'post') print'class="current-menu-item"'  ?>><a href="<?php print site_url('/blog'); ?>">Blog</a></li>
           </ul>
         </nav>
         <div class="site-header__util">
