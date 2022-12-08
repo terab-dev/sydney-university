@@ -22,6 +22,22 @@
       <div class="generic-content">
         <?php the_content(); ?>
       </div>
+      <?php 
+        $relatedPrograms = get_field('related_programs');
+
+        if($relatedPrograms) : 
+        print '<hr class="section-break"></hr>';
+        print '<h2 class="headline headline--medium">Related Programs</h2>';
+        print '<ul class="link-list min-list">';
+        foreach($relatedPrograms as $program) : ?>
+          <li><a href="<?php print get_the_permalink($program); ?> "><?php print get_the_title($program); ?></a></li>
+        
+        <?php endforeach; 
+        print '</ul>';
+        endif;
+        ?>
+        
+   
     </div>  
     
     
