@@ -8,16 +8,16 @@
   <body <?php body_class(); ?>>
     <header class="site-header">
     <div class="container">
-      <h1 class="school-logo-text float-left"><a href="<?php echo site_url() ?>"><strong>Fictional</strong> University</a></h1>
+      <h1 class="school-logo-text float-left"><a href="<?php echo site_url() ?>"><strong>Sydney</strong> University</a></h1>
       <span class="js-search-trigger site-header__search-trigger"><i class="fa fa-search" aria-hidden="true"></i></span>
       <i class="site-header__menu-trigger fa fa-bars" aria-hidden="true"></i>
       <div class="site-header__menu group">
         <nav class="main-navigation">
           <ul class="min-list group">
             <li <?php if(is_page('about-us') || wp_get_post_parent_id(0) == 7) print 'class="current-menu-item"' ?>><a href="<?php print site_url('/about-us') ?>">About Us</a></li>
-            <li><a href="#">Programs</a></li>
+            <li <?php if(get_post_type() == 'program') print 'class="current-menu-item"' ?>><a href="<?php print get_post_type_archive_link('program') ?>">Programs</a></li>
             <li <?php if(get_post_type() == 'event'|| is_page('past-events')) print 'class="current-menu-item"' ?>><a href="<?php print get_post_type_archive_link('event') ?>">Events</a></li>
-            <li><a href="#">Campuses</a></li>
+            <li <?php if(get_post_type() == 'campus') print 'class="current-menu-item"' ?>><a href="<?php print get_post_type_archive_link('campus'); ?>">Campuses</a></li>
             <li <?php if( get_post_type() == 'post') print'class="current-menu-item"'  ?>><a href="<?php print site_url('/blog'); ?>">Blog</a></li>
           </ul>
         </nav>
